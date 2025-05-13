@@ -40,10 +40,28 @@ class _HomePageState extends State<HomePage> {
               ? ListView.builder(
                 itemCount: posts?.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text(posts![index].title),
-                      subtitle: Text(posts![index].body ?? ""),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: const Color.fromARGB(255, 206, 16, 16),
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: Card(
+                            child: ListTile(
+                              title: Text(posts![index].title),
+                              subtitle: Text(posts![index].body ?? ""),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 },
